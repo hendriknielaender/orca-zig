@@ -140,17 +140,6 @@ pub const File = enum(u64) {
         return @intCast(n);
     }
 
-    // @Todo: Writergate implementations
-    pub const Writer = std.io.GenericWriter(File, oc.io.Error, write);
-    pub const Reader = std.io.GenericReader(File, oc.io.Error, read);
-
-    pub fn writer(f: File) Writer {
-        return .{ .context = f };
-    }
-    pub fn reader(f: File) Reader {
-        return .{ .context = f };
-    }
-
     /// An enum identifying the type of a file.
     pub const Type = enum(u32) {
         /// The file is of unknown type.
